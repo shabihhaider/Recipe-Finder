@@ -5,7 +5,8 @@ $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 $routes = [
     '/' => 'controllers/index.php',
     '/find' => 'controllers/find.php',
-    '/saved' => 'controllers/saved.php'
+    '/saved' => 'controllers/saved.php',
+    '/registration' => 'controllers/registration.php'
 ];
 
 function abort($code = 404) {
