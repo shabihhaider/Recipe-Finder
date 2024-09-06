@@ -6,8 +6,14 @@ require "functions.php";
 
 require "Database.php";
 
-$db = new Database();
+$config = require("config.php");
 
-$posts = $db->query("SELECT * FROM user_data")->fetchAll(PDO::FETCH_ASSOC);
+$db = new Database($config["database"]);
+
+$id = $_GET['id']; // $_GET is a superglobal array that contains all the URL parameters (query string e.g. ?name=John&age=30)
+
+$query = "SELECT * FROM user_data WHERE id = :id"; // Never ever inline query
+
+$posts = $db->query($query, [':id' => $id])->fetch();
 
 dd($posts);
