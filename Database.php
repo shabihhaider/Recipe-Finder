@@ -4,6 +4,7 @@
 
 class Database {
     public $connection;
+    public $statement;
 
     public function __construct($config)
     {
@@ -18,10 +19,31 @@ class Database {
     public function query($query, $params = []) {
         
 
-        $statement = $this->connection->prepare($query);
-        $statement->execute($params); // execute the query with the parameters
+        $this->statement = $this->connection->prepare($query);
+        $this->statement->execute($params); // execute the query with the parameters
 
-        return $statement;
+        return $this;
 
+    }
+
+    public function get()
+    {
+        return $this->statement->fetchAll();
+    }
+
+    public function find()
+    {
+        return $this->statement->fetch();
+    }
+
+    public function findOrFail()
+    {
+        $result = $this->find(); // Find the recipe
+
+        if (! $result) {
+            abort();
+        }
+
+        return $result;
     }
 }
