@@ -6,6 +6,7 @@ $routes = [
     '/' => 'controllers/index.php',
     '/find' => 'controllers/find.php',
     '/saved' => 'controllers/saved.php',
+    '/recipe' => 'controllers/recipe.php',
     '/registration' => 'controllers/registration.php'
 ];
 
