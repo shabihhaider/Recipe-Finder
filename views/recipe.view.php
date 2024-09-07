@@ -8,9 +8,9 @@
        <p class="text-blue-500 underline">
         <a href="/saved">go back...</a>
        </p>
-       
+
       <p class="mt-5">
-        <?= $recipe['recipe_name'] ?>
+        <?= htmlspecialchars($recipe['recipe_name']) ?>
       </p>
 
     </div>

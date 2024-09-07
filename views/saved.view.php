@@ -7,11 +7,17 @@
       <!-- Your content -->
        <p>This page is about Saved Recipes.</p>
 
-        <?php foreach($recipes as $recipe) : ?>
-          <li>
-            <a href="/recipe?id=<?= $recipe['id'] ?>" class="text-blue-700 hover:underline"><?= $recipe['recipe_name'] ?></a>
-          </li>
-        <?php endforeach; ?>
+        <ul>
+          <?php foreach($recipes as $recipe) : ?>
+            <li>
+              <a href="/recipe?id=<?= $recipe['id'] ?>" class="text-blue-700 hover:underline"><?= htmlspecialchars($recipe['recipe_name']) ?></a>
+            </li>
+          <?php endforeach; ?>
+        </ul>
+
+        <p class="mt-5">
+          <a href="/recipe/create" class="text-blue-500 hover:underline">Create a Recipe</a>
+        </p>
 
     </div>
   </main>
