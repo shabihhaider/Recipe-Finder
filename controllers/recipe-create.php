@@ -1,5 +1,7 @@
 <?php
 
+require "Validator.php";
+
 $config = require("config.php");
 $db = new Database($config["database"]);
 
@@ -9,12 +11,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $errors = [];
 
-    if(strlen($_POST['recipe']) === 0) {
-        $errors['recipe'] = "Recipe name is required";
-    }
-
-    if(strlen($_POST['recipe']) > 100) {
-        $errors['recipe'] = "Recipe name is less than 100 characters";
+    if(! Validator::string($_POST['recipe'], 1, 100)) {
+        $errors['recipe'] = "Recipe name is required min 1 and max 100 characters";
     }
 
     // If there are no errors, then save the recipe
