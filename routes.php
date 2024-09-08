@@ -6,5 +6,6 @@ return [
     '/saved' => 'controllers/saved.php', // Display all saved recipes
     '/recipe' => 'controllers/recipe.php', // Display a single recipe
     '/recipe/create' => 'controllers/recipe-create.php', // Create a recipe
-    '/registration' => 'controllers/registration.php'
+    '/registration' => 'controllers/registration.php', // Registration
+    '/login' => 'controllers/login.php' // Login
 ];

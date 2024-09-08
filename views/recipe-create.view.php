@@ -5,6 +5,13 @@
   <main>
     <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
       <!-- Your content -->
+      <?php if(isset($success) && empty($errors)) : ?>
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+          <strong>Success!</strong> You have successfully Create a Recipe.
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      <?php endif; ?>
+
       <!-- action="" => where should the post request go (define the path where you want to access the POST request)-->
       <form method="POST">
         <div class="space-y-12">
