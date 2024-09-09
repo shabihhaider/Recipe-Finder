@@ -12,6 +12,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $errors = [];
     $success = false;
+    $exist = false;
 
     // // Check Username if it is not null
     // if (! Validator::string($_POST['firstname'])) {
@@ -33,21 +34,33 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     //     $errors['repeat-password'] = "Passwords do not match";
     // }
 
+
+    // Check if user is already registered (in our database)
+    $email = $_POST['email'];
+
+    $user = $db->query("SELECT * FROM user_data WHERE email = :email", [
+        ':email' => $email
+    ])->findOrFail();
+
+    if($user) {
+        $exist = true;
+        $errors['exist'] = "This email is already exists. Please Login!";
+    } else {
+
     // If there are no errors, then save the user
-    if(empty($errors)) {
-        $db->query("INSERT INTO user_data (username, email, passw) VALUES (:firstname, :email, :passw)", [
+    $db->query("INSERT INTO user_data (username, email, passw) VALUES (:firstname, :email, :passw)", [
             ':firstname' => $_POST['firstname'],
             ':email' => $_POST['email'],
             ':passw' => password_hash($_POST['password'], PASSWORD_DEFAULT) // Hash the password means to encrypt the password and then store it in the database
         ]);
         // Successfully! Saved data in Database
         $success = true;
-    }
 
-    // If user is successfully registered, then redirect to login page
-    if($success) {
+     // If user is successfully registered, then redirect to login page
+     if($success) {
         header("Location: /login");
     }
+}
 }
 
 require "views/registration.view.php";
