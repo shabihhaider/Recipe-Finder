@@ -6,7 +6,7 @@
     <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
       <!-- Your content -->
       <?php if (isset($_SESSION['loggedIn'])) : ?>
-        <p>Welcome, You are successfully logged in.</p>
+        <p>Welcome, <strong><?= $_SESSION['user']['username'] ?></strong> are successfully logged in.</p>
       <?php endif; ?>
        <p>This page is about Home.</p>
     </div>

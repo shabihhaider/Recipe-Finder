@@ -8,12 +8,18 @@
        <p>This page is about Saved Recipes.</p>
 
         <ul>
+        <?php if ($_SESSION['loggedIn']) : ?>
           <?php foreach($recipes as $recipe) : ?>
             <li>
               <a href="/recipe?id=<?= $recipe['id'] ?>" class="text-blue-700 hover:underline"><?= htmlspecialchars($recipe['recipe_name']) ?></a>
             </li>
           <?php endforeach; ?>
+        <?php endif; ?>
         </ul>
+
+        <?php if (! $_SESSION['loggedIn']) : ?>
+          <h2 class="text-blue-500">NO user, NO Recipes</h2>  
+        <?php endif; ?>
 
         <p class="mt-5">
           <a href="/recipe/create" class="text-blue-500 hover:underline">Create a Recipe</a>

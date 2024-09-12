@@ -34,7 +34,7 @@
     
     <?php if(isset($errors)) : ?>
       <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <strong>Failed!</strong> Your Password is incorrect.
+        <strong>Failed!</strong> <?= $errors['email_password'] ?>.
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       </div>
     <?php endif; ?>
@@ -42,12 +42,6 @@
     <div class="container-fluid">
             <div class="wrapper">
                 <h2>LogIn <span class="registration-text">Form</span></h2>
-
-                <?php if(isset($error)) : ?>
-                    <div class="alert alert-danger" role="alert">
-                        <?= $error ?>
-                    </div>
-                <?php endif; ?>
 
                 <p id="error-message"></p>
                 <form id="form" method="POST">

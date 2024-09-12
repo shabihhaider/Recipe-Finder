@@ -28,12 +28,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Store user data in the session
         $_SESSION['loggedIn'] = true;
         $_SESSION['user'] = $user; // Session is a global variable that is used to store the data of the user in the server
-        // dd($_SESSION['user']);
 
         // Redirect to the home page
         header("Location: /");
+        exit(); // Ensure script stops executing after redirect
     } else {
-        $errors['password'] = "Password is incorrect";
+        $errors['email_password'] = "Check your Email or Password";
     }
 }
 
