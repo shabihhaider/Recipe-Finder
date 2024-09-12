@@ -1,10 +1,5 @@
 <?php
 
-session_start(); // Start the session means that the session is started and the data is stored in the server and we can access it from any page just by writing session_start() at the top of that page where we want to access the data
-
-// Store user data in the session
-$_SESSION['user'];
-
 $config = require("config.php");
 $db = new Database($config["database"]);
 
@@ -25,9 +20,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Convert the hashed password to plain text
     if (password_verify($password, $user['passw'])) {
+        $success = true;
+
+        // Start Session
+        session_start(); // Start the session means that the session is started and the data is stored in the server and we can access it from any page just by writing session_start() at the top of that page where we want to access the data
+
+        // Store user data in the session
+        $_SESSION['loggedIn'] = true;
         $_SESSION['user'] = $user; // Session is a global variable that is used to store the data of the user in the server
         // dd($_SESSION['user']);
-        $success = true;
+
+        // Redirect to the home page
         header("Location: /");
     } else {
         $errors['password'] = "Password is incorrect";

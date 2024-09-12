@@ -24,12 +24,17 @@
   <body>
   <?php require('partials/head.php') ?>
   <?php require('partials/nav.php') ?>
-  
-  
     
-    <?php if(isset($success)) : ?>
+    <?php if(isset($success) && empty($errors)) : ?>
       <div class="alert alert-warning alert-dismissible fade show" role="alert">
         <strong>Success!</strong> You have successfully Logged In.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    <?php endif; ?>
+    
+    <?php if(isset($errors)) : ?>
+      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>Failed!</strong> Your Password is incorrect.
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       </div>
     <?php endif; ?>

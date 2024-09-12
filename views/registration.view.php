@@ -25,8 +25,6 @@
   <body>
   <?php require('partials/head.php') ?>
   <?php require('partials/nav.php') ?>
-  
-  
     
     <?php if(isset($success) && empty($errors)) : ?>
       <div class="alert alert-warning alert-dismissible fade show" role="alert">
