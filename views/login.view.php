@@ -59,7 +59,7 @@
                     </div>
                     <button type="submit">LogIn</button>
                 </form>
-                <p>Already have an account? <a href="login.html">Login</a></p>
+                <p>New user? <a href="/registration">Register</a></p>
             </div>
     </div>
 
