@@ -1,12 +1,13 @@
 <?php
-
+session_start();
+$currentUserId = $_SESSION['user']['id'];   // Access user data from the session
 
 $config = require("config.php");
 $db = new Database($config["database"]);
 
 $heading = "Saved Recipes";
-$currentUserId = 1;
 
+// Retrieve the saved recipes from the database of the logged-in user
 $recipe = $db->query("SELECT * FROM saved_recipes WHERE id = :id", [
     ':id' => $_GET['id']
 ])->findOrFail();
