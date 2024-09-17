@@ -26,6 +26,10 @@
             <button type="submit" class="btn btn-primary mt-5">Search Recipes</button>
         </form>
         <div id="results" class="mt-5"></div>
+        <!-- Load More button, hidden by default -->
+        <div class="load">
+          <button class ="load-btn hidden" id="loadMore">Load More</button>
+        </div>
     </div>
   </main>
   
