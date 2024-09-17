@@ -40,6 +40,13 @@
       </div>
     <?php endif; ?>
 
+    <?php if(!isset($_SESSION['user'])) : ?>
+      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>First LogIn/Register</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    <?php endif; ?>
+
     <div class="container-fluid">
             <div class="wrapper">
                 <h2>Registration <span class="registration-text">Form</span></h2>
