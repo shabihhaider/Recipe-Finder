@@ -64,10 +64,33 @@ $(document).ready(function() {
         $('#results').empty();
         offset = 0; // Reset the offset (offset means the number of recipes to skip)
         loadRecipes();  // Load the first set of recipes
+        
     });
 
     // Load more button click event
     $('#loadMore').on('click', function() {
         loadRecipes();  // Load more recipes
+    });
+
+    $('#search-btn').on('click', function() {
+        // post to the server that the user made a search bu it is empty then don't make a post request
+        ingredients = $('#ingredients').val().trim();  // Get ingredients input
+        if (ingredients === "") {
+            return;
+        } else {
+            $.ajax({
+                url: '/find',
+                method: 'POST',
+                data: {
+                    search: ingredients
+                },
+                success: function(response) {
+                    console.log(response);
+                },
+                error: function() {
+                    console.log('Error saving search');
+                }
+            });
+        }
     });
 });

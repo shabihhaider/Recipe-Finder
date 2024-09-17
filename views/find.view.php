@@ -23,7 +23,7 @@
                 <label for="ingredients">Enter Ingredients (comma-separated):</label>
                 <input type="text" id="ingredients" class="form-control mt-3" placeholder="e.g., chicken, tomato, garlic">
             </div>
-            <button type="submit" class="btn btn-primary mt-5">Search Recipes</button>
+            <button id="search-btn" type="submit" class="btn btn-primary mt-5">Search Recipes</button>
         </form>
         <div id="results" class="mt-5"></div>
         <!-- Load More button, hidden by default -->
