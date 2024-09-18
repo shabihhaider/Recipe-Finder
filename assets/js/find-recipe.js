@@ -1,7 +1,6 @@
 $(document).ready(function() {
     let ingredients = '';
     let offset = 0;
-    let totalResults = 0; // Keep track of the total available recipes
     const apiKey = 'c13e725769804969a77e1670b5e70a7c';  // Replace with your Spoonacular API Key
     const recipesPerPage = 5;  // Number of recipes to load per request
 
@@ -50,6 +49,30 @@ $(document).ready(function() {
             }
         });
     }
+
+    function limitIsExceed(limitExceed) {
+        if (limitExceed) {
+            $('#results').html('<p>API limit exceeded. Please try again later.</p>');
+            $('#ingredients').prop('disabled', true);
+            $('#search-btn').prop('disabled', true);
+            exit();
+        } else {
+            $('#ingredients').prop('disabled', false);
+            $('#search-btn').prop('disabled', false);
+        }
+    }
+
+    // Get current date
+    const currentDate = new Date();
+    const formattedDate = currentDate.toISOString().split('T')[0];
+    console.log(formattedDate); // Outputs date in the format YYYY-MM-DD
+
+    if (lastSearchDate === formattedDate) {
+        limitIsExceed(limitExceed);
+    } else {
+        limitIsExceed(limitExceed);
+    }
+    
 
     // Initial recipe search
     $('#recipeSearchForm').on('submit', function(e) {

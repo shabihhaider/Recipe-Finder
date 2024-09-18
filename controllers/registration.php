@@ -8,6 +8,9 @@ $db = new Database($config["database"]);
 
 $heading = "Registration Form";
 
+// User is paid or not
+$is_paid = 0;
+
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $errors = [];
@@ -24,10 +27,13 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
         $errors['exist'] = "This email is already exists. Please Login!";
     } else {
             // If there are no errors (New user), then save the user
-            $db->query("INSERT INTO user_data (username, email, passw) VALUES (:firstname, :email, :passw)", [
+            $db->query("INSERT INTO user_data (username, email, passw, no_of_searches, last_search_date, is_paid) VALUES (:firstname, :email, :passw, :no_of_searches, :last_search_date, :is_paid)", [
                 ':firstname' => $_POST['firstname'],
                 ':email' => $_POST['email'],
-                ':passw' => password_hash($_POST['password'], PASSWORD_DEFAULT) // Hash the password means to encrypt the password and then store it in the database
+                ':passw' => password_hash($_POST['password'], PASSWORD_DEFAULT), // Hash the password means to encrypt the password and then store it in the database
+                ':no_of_searches' => 0,
+                ':last_search_date' => date('Y-m-d'),
+                ':is_paid' => $is_paid
             ]);
             
             // Successfully! Saved data in Database

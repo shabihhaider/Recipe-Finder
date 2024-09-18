@@ -1,3 +1,12 @@
+<?php
+      if ($user['no_of_searches'] >= $limit) {
+          $limitExceed = true; // Set the search value
+          //exit();
+      } else {
+          $limitExceed = false;
+      }
+?>
+    
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,5 +44,10 @@
   
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="assets/js/find-recipe.js"></script>
+      <script>
+        const limitExceed = "<?php echo $limitExceed; ?>";
+        const lastSearchDate = "<?php echo $user['last_search_date']; ?>";
+        console.log(lastSearchDate); // This will log 'exceeded'
+      </script>
 </body>
 </html>
