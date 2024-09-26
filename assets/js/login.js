@@ -52,10 +52,8 @@ function getLogInFormErrors(email, password) {
 }
 
 const allInputs = [
-  firstNameInput,
   emailInput,
   passwordInput,
-  repeatPasswordInput,
 ].filter((input) => input != null);
 
 allInputs.forEach((input) => {

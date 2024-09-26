@@ -11,7 +11,7 @@ class Database {
 
         $dsn = "mysql:" . http_build_query($config, '', ';'); // build query like this: host=localhost;port=3306;dbname=recipe finder;charset=utf8mb4
 
-        $this->connection = new PDO($dsn, 'root', '', [
+        $this->connection = new PDO($dsn, 'root', '?pro!ject!@database?72', [
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
         ]);
     }
