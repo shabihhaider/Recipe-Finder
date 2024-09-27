@@ -8,7 +8,7 @@
        <p>This page is about Saved Recipes.</p>
 
         <ul>
-        <?php if ($_SESSION['loggedIn']) : ?>
+        <?php if (isset($_SESSION['loggedIn'])) : ?>
           <?php foreach($recipes as $recipe) : ?>
             <li>
               <a href="/recipe?id=<?= $recipe['id'] ?>" class="text-blue-700 hover:underline"><?= htmlspecialchars($recipe['recipe_name']) ?></a>
@@ -17,8 +17,8 @@
         <?php endif; ?>
         </ul>
 
-        <?php if (! $_SESSION['loggedIn']) : ?>
-          <h2 class="text-blue-500">NO user, NO Recipes</h2>  
+        <?php if (!isset($_SESSION['loggedIn'])) : ?>
+          <h2 class="text-blue-500"><?= $error['noUser'] ?></h2>  
         <?php endif; ?>
 
         <p class="mt-5">

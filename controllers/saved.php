@@ -18,12 +18,7 @@ if(isset($_SESSION['user']) && $_SESSION['loggedIn'] == true) {
     // echo "The logged-in user is: " . $user['id'];
 
 } else {
-    echo "No user data found in the session.";
-    
-    // If there is no user then there is no saved recipes
-    echo "No User. No Recipe";
-    // dd($_SESSION['loggedIn']);
-
+    $error['noUser'] = "No user. No Data. Please LogIn to create and saved Recipes.";
 }
 
 require "views/saved.view.php";
