@@ -16,6 +16,12 @@
     <main>
       <h1 class="mt-5 ms-5">Favourites</h1>
         <div class="container">
+          <?php if(!isset($user['is_paid'])) : ?>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+              <strong>You are not a paid user. </strong>To save Favourite Recipes. Please take our subscription.
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+          <?php endif; ?>
             <?php foreach($savedRecipes as $recipe) : ?>
             <div id="results" class="mt-5">
               <div class="card text-bg-success ms-5 mt-5" style="width: 18rem;">

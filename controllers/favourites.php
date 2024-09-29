@@ -7,8 +7,9 @@ $db = new Database($config["database"]);
 
 $heading = "Your Favourite Recipes";
 $savedRecipes = [];
+$error = [];
 
-if(isset($_SESSION['user']) && $_SESSION['loggedIn'] == true) {
+if(isset($_SESSION['user']) && $_SESSION['loggedIn'] == true && $_SESSION['user']['is_paid'] == 1) {
     $user = $_SESSION['user'];
     $user_id = $user['id'];
 
@@ -27,7 +28,7 @@ if(isset($_SESSION['user']) && $_SESSION['loggedIn'] == true) {
         //     exit;
         // }
 
-        if (isset($data['recipeID']) && $user_id) {
+        if (isset($data['recipeID']) && $user_id && $user['is_paid'] == 1) {
             $recipeId = $data['recipeID'];
             $recipeTitle= $data['recipeTitle'];
             $recipeImage = $data['recipeImage'];
@@ -54,6 +55,8 @@ if(isset($_SESSION['user']) && $_SESSION['loggedIn'] == true) {
                 'savedData' => $data
             ]);
             exit;
+        } else {
+            $error['save'] = "You cannot saved a Recipe because you are not a paid user.";
         }
     }
 }

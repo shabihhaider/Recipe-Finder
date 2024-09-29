@@ -9,7 +9,7 @@ $db = new Database($config["database"]);
 $heading = "Registration Form";
 
 // User is paid or not
-$is_paid = 0;
+$is_paid = true;
 
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
 

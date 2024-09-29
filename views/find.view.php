@@ -16,6 +16,7 @@
     <main>
         <div class="container">
             <h1 class="mt-5">Recipe Search</h1>
+            <p class="message"></p>
             <form id="recipeSearchForm">
                 <div class="form-group mt-3">
                     <label for="ingredients">Enter Ingredients (comma-separated):</label>
@@ -39,6 +40,7 @@
         let limitExceed = <?php echo $limitExceed ?>;
         let noOfSearches = <?php echo $user['no_of_searches'] ?>;
         const searchLimit = <?php echo $limit ?>;
+        const userIsPaid = <?php echo $user['is_paid'] ?>;
     </script>
 
 </body>

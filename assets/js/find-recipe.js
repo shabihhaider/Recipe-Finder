@@ -9,39 +9,7 @@ $(document).ready(function() {
     // Initial check if limit is exceeded on page load
     if (limitExceed == 1 || noOfSearches >= searchLimit) {
         limitIsExceed(true);
-    }
-
-    // Save recipe button click event
-    $(document).on('click', '#save-recipe', function() {
-        const recipeID = $(this).data('id');
-        const recipeTitle = $(this).data('title');
-        const recipeImage = $(this).data('image');
-
-        console.log('Save recipe ID:', recipeID);
-        console.log('Save recipe Title:', recipeTitle);
-        console.log('Save recipe Image:', recipeImage);
-        
-        // Save the recipe to the database
-        fetch("/favourites", {
-            "method": "POST",
-            "headers": {
-                "Content-Type": "application/json; charset=utf-8"
-            },
-            "body": JSON.stringify({ "recipeID": recipeID, "recipeTitle": recipeTitle, "recipeImage": recipeImage })
-        })
-        .then(function(response) {
-            return response.json();
-        })
-        .then(function(data) {
-            console.log(data);
-            if (data.saved) {
-                $(this).text('Saved').prop('disabled', true);  // Disable button if successfully saved
-            }
-        })
-        .catch(error => {
-            console.error('Error saving recipe:', error);
-        });
-    });        
+    }    
 
     $('#recipeSearchForm').on('submit', function(e) {
         e.preventDefault();
@@ -72,7 +40,7 @@ $(document).ready(function() {
         .then(function(data) {
             noOfSearches = data.searchCount;
             limitExceed = data.limitExceed;
-
+            
             if (data.limitExceed || data.searchCount >= searchLimit) {
                 limitIsExceed(true);
                 console.log("Limit exceeded");
@@ -95,6 +63,56 @@ $(document).ready(function() {
             loadRecipes();
         });
     });
+
+    // Save recipe button click event
+    if (userIsPaid) {
+        $(document).on('click', '#save-recipe', function() {
+            const recipeID = $(this).data('id');
+            const recipeTitle = $(this).data('title');
+            const recipeImage = $(this).data('image');
+    
+            console.log('Save recipe ID:', recipeID);
+            console.log('Save recipe Title:', recipeTitle);
+            console.log('Save recipe Image:', recipeImage);
+            
+            // Save the recipe to the database
+            fetch("/favourites", {
+                "method": "POST",
+                "headers": {
+                    "Content-Type": "application/json; charset=utf-8"
+                },
+                "body": JSON.stringify({ "recipeID": recipeID, "recipeTitle": recipeTitle, "recipeImage": recipeImage })
+            })
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(data) {
+                console.log(data);
+                if (data.saved) {
+                    $('.message').html(`
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <strong>You successfully saved your recipe.</strong>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>`
+                    );
+                    $(this).text('Saved').prop('disabled', true);  // Disable button if successfully saved
+                }
+            })
+            .catch(error => {
+                console.error('Error saving recipe:', error);
+            });
+        });    
+    } else {
+        $(document).on('click', '#save-recipe', function() {
+            $('.message').html(`
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>You are not a paid user. </strong>To save Favourite Recipes. Please take our subscription.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>`
+            );
+        });
+    }
+
 });
 
 // Function to dynamically build the query URL with offset
