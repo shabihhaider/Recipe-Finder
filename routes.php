@@ -9,5 +9,6 @@ return [
     '/registration' => 'controllers/registration.php', // Registration
     '/login' => 'controllers/login.php', // Login
     '/logout' => 'controllers/logout.php', // Logout
-    '/favourites' => 'controllers/favourites.php' // Favourites
+    '/favourites' => 'controllers/favourites.php', // Favourites
+    '/subscription' => 'controllers/subscription.php', // Subscription
 ];

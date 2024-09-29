@@ -14,7 +14,7 @@
               <?php if (!isset($_SESSION['user'])) :?>
                 <a href="/registration" class="<?= urlIs('/registration') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' ?> rounded-md px-3 py-2 text-sm font-medium">Registration Form</a>
               <?php endif; ?>
-                <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Price</a>
+                <a href="/subscription" class="<?= urlIs('/subscription') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' ?> rounded-md px-3 py-2 text-sm font-medium">Subscription</a>
               <?php if (!isset($_SESSION['user'])) :?>
                 <a href="/login" class="<?= urlIs('/login') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' ?> rounded-md px-3 py-2 text-sm font-medium">LogIn Form</a>
               <?php endif; ?>
