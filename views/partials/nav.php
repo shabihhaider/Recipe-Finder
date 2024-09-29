@@ -21,6 +21,9 @@
               <?php if (isset($_SESSION['user'])) :?>
                 <a href="/logout" class="<?= urlIs('/logout') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' ?> rounded-md px-3 py-2 text-sm font-medium">Logout</a>
               <?php endif; ?>
+              <?php if (isset($_SESSION['user'])) :?>
+                <a href="/favourites" class="<?= urlIs('/favourites') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' ?> rounded-md px-3 py-2 text-sm font-medium">Favourites</a>
+              <?php endif; ?>
             </div>
           </div>
         </div>

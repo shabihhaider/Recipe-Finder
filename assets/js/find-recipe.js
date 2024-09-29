@@ -11,6 +11,38 @@ $(document).ready(function() {
         limitIsExceed(true);
     }
 
+    // Save recipe button click event
+    $(document).on('click', '#save-recipe', function() {
+        const recipeID = $(this).data('id');
+        const recipeTitle = $(this).data('title');
+        const recipeImage = $(this).data('image');
+
+        console.log('Save recipe ID:', recipeID);
+        console.log('Save recipe Title:', recipeTitle);
+        console.log('Save recipe Image:', recipeImage);
+        
+        // Save the recipe to the database
+        fetch("/favourites", {
+            "method": "POST",
+            "headers": {
+                "Content-Type": "application/json; charset=utf-8"
+            },
+            "body": JSON.stringify({ "recipeID": recipeID, "recipeTitle": recipeTitle, "recipeImage": recipeImage })
+        })
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(data) {
+            console.log(data);
+            if (data.saved) {
+                $(this).text('Saved').prop('disabled', true);  // Disable button if successfully saved
+            }
+        })
+        .catch(error => {
+            console.error('Error saving recipe:', error);
+        });
+    });        
+
     $('#recipeSearchForm').on('submit', function(e) {
         e.preventDefault();
         
@@ -62,7 +94,6 @@ $(document).ready(function() {
             }
             loadRecipes();
         });
-
     });
 });
 
@@ -114,6 +145,7 @@ function loadRecipes() {
             if (fetchedRecipes > 0) {
                 let newRecipesFound = false;
                 response.forEach(function(recipe) {
+
                     // Check if the recipe is already displayed
                     if (!displayedRecipes.has(recipe.id)) {
                         newRecipesFound = true;  // New unique recipe found
@@ -126,6 +158,7 @@ function loadRecipes() {
                                 <div class="card-body">
                                     <h5 class="card-title">${recipe.title}</h5>
                                     <p><a href="https://spoonacular.com/recipes/${recipe.title}-${recipe.id}" target="_blank" class="btn btn-primary">View Recipe</a></p>
+                                    <button class="btn btn-success" id="save-recipe" data-id="${recipe.id}" data-title="${recipe.title}" data-image="${recipe.image}" ">Save</button>
                                 </div>
                             </div>
                         `);

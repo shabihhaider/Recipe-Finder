@@ -15,7 +15,6 @@ if(isset($_SESSION['user']) && $_SESSION['loggedIn'] == true) {
     $recipes = $db->query("SELECT * FROM saved_recipes WHERE user_id = :user_id", [
         ':user_id' => $user['id']
     ])->get();
-    // echo "The logged-in user is: " . $user['id'];
 
 } else {
     $error['noUser'] = "No user. No Data. Please LogIn to create and saved Recipes.";

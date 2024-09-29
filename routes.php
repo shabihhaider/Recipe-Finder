@@ -8,5 +8,6 @@ return [
     '/recipe/create' => 'controllers/recipe-create.php', // Create a recipe
     '/registration' => 'controllers/registration.php', // Registration
     '/login' => 'controllers/login.php', // Login
-    '/logout' => 'controllers/logout.php' // Logout
+    '/logout' => 'controllers/logout.php', // Logout
+    '/favourites' => 'controllers/favourites.php' // Favourites
 ];
