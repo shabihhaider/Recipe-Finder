@@ -12,11 +12,12 @@ body {
 }
 
 .container h1 {
-    color: #1b5e20;
+    font-weight: 900;
+    color: var(--primary-color);
     text-align: center;
     font-size: 2.5rem;
     padding: 3rem 1rem;
-    margin-bottom: 4rem;
+    margin-bottom: 1rem;
 }
 
 .price-row {
@@ -31,11 +32,11 @@ body {
 
 .price-column {
     height: 60vh;
-    background-color: #1b5e20;
-    color: #f7f7f7;
+    background-color: black;
+    color: var(--primary-color);
     padding: 2rem;
     border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 10px rgb(255, 166, 0.5);
     text-align: center;
     transition: 0.3s;
 }
@@ -45,6 +46,7 @@ body {
 }
 
 .price-column h2 {
+    font-weight: bold;
     font-size: 2rem;
     margin-bottom: 3rem;
 }
@@ -59,13 +61,14 @@ ul li {
 }
 
 h3 {
+    font-weight: 800;
     font-size: 1.9rem;
     margin-bottom: 3rem;
 }
 
 h3 .month {
     font-size: 1rem;
-    color: #f9a825;
+    color: white;
 }
 
 .price-footer {
@@ -78,8 +81,8 @@ a {
 }
 
 .price-footer .btn {
-    background-color: #f9a825;
-    color: #1b5e20;
+    background-color: var(--primary-color);
+    color: white;
     padding: 1rem 2rem;
     border: none;
     border-radius: 5px;
@@ -89,8 +92,7 @@ a {
 }
 
 .price-footer .btn:hover {
-    background-color: #ffb74d;
-    color: white;
+    background-color: #ef9a1b;
 }
 
 /* Responsive */

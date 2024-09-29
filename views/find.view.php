@@ -6,15 +6,13 @@
     <title>Recipe Search</title>
     <!--BOOTSTRAP CSS CDN LINK-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/find-recipe.css">
 </head>
 <body>
     <?php require('partials/head.php'); ?>
     <?php require('partials/nav.php'); ?>
-    <?php require('partials/banner.php'); ?>
 
     <main>
-        <div class="container">
+        <div class="container find-container">
             <h1 class="mt-5">Recipe Search</h1>
             <p class="message"></p>
             <form id="recipeSearchForm">
@@ -24,7 +22,11 @@
                 </div>
                 <button id="search-btn" type="submit" class="btn btn-primary mt-5">Search Recipes</button>
             </form>
-            <div id="results" class="mt-5"></div>
+            <div class="container">
+                <section class="section__container special__container" id="special">
+                    <div id="results" class="special__grid"></div>
+                </section>
+            </div>
             <div class="load">
                 <button class="load-btn hidden" id="loadMore">Load More</button>
             </div>

@@ -10,6 +10,7 @@ $heading = "Registration Form";
 
 // User is paid or not
 $is_paid = true;
+$error = [];
 
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
@@ -18,9 +19,9 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     $exist = false;
 
     // Check if user is already registered (in our database)
-        $user = $db->query("SELECT * FROM user_data WHERE email = :email", [
-            ':email' => $_POST['email']
-            ])->find();
+    $user = $db->query("SELECT * FROM user_data WHERE email = :email", [
+        ':email' => $_POST['email']
+        ])->find();
 
     if($user) {
         $exist = true;

@@ -7,13 +7,13 @@
     <!--BOOTSTRAP CSS CDN LINK-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/subscription.css">
-</head>
-<body>
-  
+  </head>
+  <body>
+    
 <?php require('partials/head.php') ?>
 <?php require('partials/nav.php') ?>
 
-<div class="container">
+<div class="container subscription-container">
         <h1>Choose Your Plan</h1>
         <div class="price-row">
             <div class="price-column">

@@ -171,14 +171,25 @@ function loadRecipes() {
 
                         // Append the recipe card
                         $('#results').append(`
-                            <div class="card text-bg-success ms-5 mt-5" style="width: 18rem;">
-                                <img src="${recipe.image}" class="card-img-top" alt="${recipe.title}">
-                                <div class="card-body">
-                                    <h5 class="card-title">${recipe.title}</h5>
-                                    <p><a href="https://spoonacular.com/recipes/${recipe.title}-${recipe.id}" target="_blank" class="btn btn-primary">View Recipe</a></p>
-                                    <button class="btn btn-success" id="save-recipe" data-id="${recipe.id}" data-title="${recipe.title}" data-image="${recipe.image}" ">Save</button>
-                                </div>
-                            </div>
+                                <div class="special__card">
+                                        <img src="${recipe.image}" alt="${recipe.title}" />
+                                        <h4>${recipe.title}</h4>
+                                        <p>
+                                            Diced chicken simmered in aromatic curry sauce with mixed veggies
+                                            like potatoes, cauliflower, and beans for a hearty, flavorful dish.
+                                        </p>
+                                        <div class="special__ratings">
+                                            <span><i class="ri-star-fill"></i></span>
+                                            <span><i class="ri-star-fill"></i></span>
+                                            <span><i class="ri-star-fill"></i></span>
+                                            <span><i class="ri-star-fill"></i></span>
+                                            <span><i class="ri-star-fill"></i></span>
+                                        </div>
+                                        <div class="special__footer">
+                                            <button class="btn"><a href="https://spoonacular.com/recipes/${recipe.title}-${recipe.id}" target="_blank" class="btn btn-primary">View Recipe</a></button>
+                                            <button class="btn btn-success" id="save-recipe" data-id="${recipe.id}" data-title="${recipe.title}" data-image="${recipe.image}" ">Save</button>
+                                        </div>
+                                    </div>
                         `);
                     }
                 });
