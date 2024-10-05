@@ -11,4 +11,5 @@ return [
     '/logout' => 'controllers/logout.php', // Logout
     '/favourites' => 'controllers/favourites.php', // Favourites
     '/subscription' => 'controllers/subscription.php', // Subscription
+    '/contact' => 'controllers/contact/send-mail.php', // Contact
 ];
