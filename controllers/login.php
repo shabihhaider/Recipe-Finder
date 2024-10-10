@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             exit(); // Ensure script stops executing after redirect
         } else {
             $errors['email_password'] = "Check your Email or Password";
-            //dd("login failed");
+            $errors['exist'] = "User doesn't exist";
     }
 }
 

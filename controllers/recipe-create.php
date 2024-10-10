@@ -1,41 +1,15 @@
 <?php
 session_start();
 
-require "Validator.php";
+if ($_SESSION['loggedIn'] || $_SESSION['user']) {
 
-$config = require("config.php");
-$db = new Database($config["database"]);
+    $user = $_SESSION['user']; // Get user details
 
-$heading = "Create a Recipe";
+    // Extract data all the data (recipes of user that he create) [recipe notes]
 
-if(isset($_SESSION['user'])) {
-    
-    if($_SERVER['REQUEST_METHOD'] === 'POST') {
-        
-        $errors = [];
-        $success = false;
 
-        // Check Recipe name if it is not null
-        if(! Validator::string($_POST['recipe'], 1, 100)) {
-            $errors['recipe'] = "Recipe name is required min 1 and max 100 characters";
-        }
-
-        // If there are no errors, then save the recipe
-        if(empty($errors)) {
-            $db->query("INSERT INTO saved_recipes (recipe_name, user_id) VALUES (:recipe_name, :user_id)", [
-                ':recipe_name' => $_POST['recipe'],
-                ':user_id' => $_SESSION['user']['id']
-            ]);
-            $success = true;
-        }
-    }
-    
 } else {
-    // If there is no user then user cannot create or post a recipe
-    $errors['create'] = "You cannot create a Recipe because you are not loggedIn.";
-    header("Location: /login");
-    exit(); // Ensure script stops executing after redirect
+    $error['userNotLogIn'] = "You are not logIn.";
 }
-
 
 require "views/recipe-create.view.php";

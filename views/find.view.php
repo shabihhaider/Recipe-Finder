@@ -45,5 +45,4 @@
         const userIsPaid = <?php echo $user['is_paid'] ?>;
     </script>
 
-</body>
-</html>
+<?php require('partials/footer.php') ?>

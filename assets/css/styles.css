@@ -87,15 +87,16 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
-nav {
-  position: fixed;
+nav { 
+  position: sticky;
   isolation: isolate;
-  width: 100%;
+  width: 100vw;
   z-index: 9;
+  margin-bottom: 1rem;
 }
 
 .nav__header {
-  width: 100%;
+  width: 100vw;
   padding: 1rem;
   display: flex;
   align-items: center;
@@ -531,7 +532,7 @@ nav {
 
 @media (width > 768px) {
   nav {
-    position: static;
+    position: sticky;
     padding: 2rem 1rem;
     max-width: var(--max-width);
     margin-inline: auto;
@@ -679,14 +680,12 @@ nav {
 .your-recipe-notes {
   display: flex;
   justify-content: center;
-
   flex-direction: column;
   gap: 2rem;
   margin-top: 20px;
-  width: 90vh;
+  width: 100vw;
   padding-top: 5rem;
-  margin: auto;
-
+  padding: 2rem;
 }
 
 .saved-recipe-notes-title {
@@ -711,6 +710,7 @@ nav {
   transition: 0.3s;
   width: 20%;
   text-align: center;
+  font-weight: 900;
 }
 
 #create-recipe-button a {
@@ -809,3 +809,29 @@ nav {
 .subscription-container {
   padding-top: 2rem;
 }
+
+/* Footer responsive */
+
+.footer__container {
+  display: grid;
+  gap: 2rem;
+}
+
+.footer__col {
+  display: grid;
+  gap: 1rem;
+}
+
+.footer__links {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.footer__links a {
+  color: var(--text-light);
+}
+
+.footer__links a:hover {
+  color: var(--primary-color);
+}
+

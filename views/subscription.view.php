@@ -1,15 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Favourites</title>
-    <!--BOOTSTRAP CSS CDN LINK-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/assets/css/subscription.css">
-  </head>
-  <body>
-    
+<!--BOOTSTRAP CSS CDN LINK-->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/subscription.css">
+
 <?php require('partials/head.php') ?>
 <?php require('partials/nav.php') ?>
 

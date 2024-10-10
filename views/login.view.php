@@ -3,7 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>LogIn</title>
+    <title>Registration Form</title>
+    <!--BOOTSTRAP CSS CDN LINK-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
     <link rel="stylesheet" href="assets/css/registration.css">
@@ -27,22 +28,21 @@
     
     <?php if(isset($success) && empty($errors)) : ?>
       <div class="alert alert-warning alert-dismissible fade show" role="alert">
-        <strong>Success!</strong> You have successfully Logged In.
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-      </div>
-    <?php endif; ?>
-    
-    <?php if(isset($errors)) : ?>
-      <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <strong>Failed!</strong> <?= $errors['email_password'] ?>.
+        <strong>Success!</strong> You have successfully LoggedIn.
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       </div>
     <?php endif; ?>
 
+    <?php if(isset($errors)) : ?>
+      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>Don't exist!</strong> <?= $errors['exist'] ?>.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    <?php endif; ?>
+      
     <div class="container-fluid">
             <div class="wrapper">
                 <h2>LogIn <span class="registration-text">Form</span></h2>
-
                 <p id="error-message"></p>
                 <form id="form" method="POST">
                     <div class="highlight">
@@ -59,13 +59,10 @@
                     </div>
                     <button type="submit">LogIn</button>
                 </form>
-                <p>New user? <a href="/registration">Register</a></p>
+                <p>New User? <a href="/registration">SignUp</a></p>
             </div>
     </div>
 
     <script src="assets/js/login.js"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
-  </body>
-</html>
+    
+    <?php require('partials/footer.php') ?>
