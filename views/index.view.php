@@ -11,8 +11,7 @@
         <?php endif; ?>
         <h1>Find, Select, Made & Enjoy The <span>True Taste</span>.</h1>
         <p class="section__description">
-          Discover the true essence of culinary delight as you meet, eat, and
-          savor the authentic flavors that define our passion for food.
+          Explore the best and most delicious recipes, easy to make and perfect. So, What are you waiting for? Start now!
         </p>
         <div class="header__btn">
           <a href="/subscription"><button class="btn">Get Started</button></a>
@@ -25,11 +24,9 @@
         <img src="assets/images/explore_recipes.png" alt="explore" />
       </div>
       <div class="explore__content">
-        <h1 class="section__header">Find Easy, Healthy & Tasty Food</h1>
+        <h1 class="section__header">Find your Recipe</h1>
         <p class="section__description">
-          Indulge guilt-free with our commitment to serving wholesome and
-          delicious meals. Explore a menu curated to balance taste and
-          nutrition, ensuring every bite is both satisfying and nourishing.
+          Simple to search for recipes by TlashRecipe, easy to make and perfect for any occasion. Explore our collection of recipes and get inspired. And make your own recipe.
         </p>
         <div class="explore__btn">
           <button class="btn">
@@ -49,8 +46,7 @@
             <a href="/">Tlash<span>Recipe</span></a>
           </div>
           <p class="section__description">
-            Embark on a gastronomic journey with FoodMan, where every bite tells
-            a story and every dish is crafted to perfection.
+            TlashRecipe is a platform where you can find the best and most delicious recipes, easy to make and perfect for any occasion. 
           </p>
         </div>
         <div class="footer__col">
