@@ -2,7 +2,7 @@
 <section class="section_contact" id="contact">
       <div class="contact__container">
         <div class="contact__content">
-          <h2 class="section__header">Contact Us</h2>
+          <h2 class="section__header">Contact <span>Us</span></h2>
           <form class="contact__form" action="/contact" method="POST">
             <div class="contact__form-group">
               <label for="name">Name</label>

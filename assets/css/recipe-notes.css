@@ -45,23 +45,12 @@ form {
 
 form label {
     font-size: 1rem;
-    font-weight: 900;
     margin-bottom: 0.5rem;
 }
 
-input[type="text"],
 textarea {
-    padding: 10px;
-    border-radius: 5px;
-    border: none;
-    background-color: #fee4cb;
-    font-size: 1rem;
-    font-family: sans-serif;
-}
-
-textarea {
-    resize: vertical;
-    min-height: 100px;
+    resize: vertical !important;
+    min-height: 100px !important;
 }
 
 .modal-backdrop {
@@ -79,23 +68,11 @@ textarea {
     display: block;
 }
 
-.submit-btn {
-    width: 100%; /* Full width */
-    max-width: 200px; /* Max width for larger screens */
-    padding: 10px;
-    background-color: var(--primary-color);
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin: auto; /* Center the button */
+.create-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-
-.submit-btn:hover {
-    background-color: #ffc15d;
-}
-
-
 
 /* Cards */
 .special__card h4 {
@@ -140,4 +117,22 @@ textarea {
 
 .special__card li:hover {
     background-color: #e8f4ff;
-}  
+}
+
+.saved-recipe-notes-title {
+    margin-bottom: -3rem;
+}
+
+.saved-recipe-notes-title span {
+    color: var(--primary-color);
+}
+
+.create-recipe-title {
+    font-weight: 900;
+    text-align: center;
+    margin-top: 2rem;
+  }
+  
+  .create-recipe-title span {
+    color: var(--primary-color);
+  }

@@ -5,7 +5,7 @@
     <main>
       <div class="container">
       <section class="section__container special__container" id="special">
-        <h2 class="section__header">My Recipes</h2>
+        <h2 class="section__header">My <span class="favourite-text-color">Favourite</span> Recipes</h2>
         <div class="special__grid">
           <?php foreach($savedRecipes as $recipe) : ?>
             <div class="special__card">
@@ -23,7 +23,7 @@
                 <span><i class="ri-star-fill"></i></span>
               </div>
               <div class="special__footer">
-                <button class="btn"><a href="https://spoonacular.com/recipes/<?= $recipe['recipe_title'] ?>-<?= $recipe['recipe_id'] ?>" target="_blank" class="btn btn-primary">View Recipe</a></button>
+                <button class="btn"><a href="https://spoonacular.com/recipes/<?= $recipe['recipe_title'] ?>-<?= $recipe['recipe_id'] ?>" target="_blank">View Recipe</a></button>
               </div>
             </div>
           <?php endforeach; ?>

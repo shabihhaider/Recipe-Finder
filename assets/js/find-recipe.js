@@ -186,7 +186,7 @@ function loadRecipes() {
                                             <span><i class="ri-star-fill"></i></span>
                                         </div>
                                         <div class="special__footer">
-                                            <button class="btn"><a href="https://spoonacular.com/recipes/${recipe.title}-${recipe.id}" target="_blank" class="btn btn-primary">View Recipe</a></button>
+                                            <button class="btn"><a href="https://spoonacular.com/recipes/${recipe.title}-${recipe.id}" target="_blank">View Recipe</a></button>
                                             <button class="btn btn-success" id="save-recipe" data-id="${recipe.id}" data-title="${recipe.title}" data-image="${recipe.image}" ">Save</button>
                                         </div>
                                     </div>

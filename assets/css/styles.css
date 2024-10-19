@@ -19,10 +19,13 @@
 .section__container {
   max-width: var(--max-width);
   margin: auto;
-  padding: 5rem 1rem;
+  padding: 2rem 1rem;
 }
 
-.section__header {
+.section__header,
+.saved-recipe-notes-title,
+.find-container h1,
+.subscription-container h1 {
   margin-bottom: 1rem;
   font-size: 2.5rem;
   font-weight: 700;
@@ -31,28 +34,45 @@
   text-align: center;
 }
 
+.favourite-text-color {
+  color: var(--primary-color);
+}
+
 .section__description {
   color: var(--text-light);
   line-height: 1.75rem;
   text-align: center;
 }
 
-.btn {
-  padding: 0.75rem 1.5rem;
-  outline: none;
-  border: none;
-  white-space: nowrap;
-  font-size: 1rem;
-  color: var(--white);
+.submit-btn, .btn {
+  width: 100%; /* Full width */
+  max-width: 200px; /* Max width for larger screens */
+  padding: 10px;
   background-color: var(--primary-color);
-  border-radius: 10px;
-  transition: 0.3s;
+  color: white;
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
+  margin: auto; /* Center the button */
+  margin-top: 1rem;
+  font-weight: 600;
+  transition: 0.3s ease;
 }
 
-.btn:hover {
+.submit-btn:hover, .btn:hover {
   background-color: var(--primary-color-dark);
+  color: black;
 }
+
+.explore-button:hover a,
+.btn:hover a{
+  color: #18181b;
+}
+
+.btn a {
+  color: white;
+}
+
 
 .logo a {
   font-size: 1.5rem;
@@ -60,8 +80,12 @@
   color: var(--primary-color);
 }
 
-.logo a span {
+.nav__logo a span {
   color: var(--text-dark);
+}
+
+.footer__logo a span {
+  color: var(--white);
 }
 
 img {
@@ -189,10 +213,11 @@ nav {
 .special__grid {
   margin-top: 4rem;
   display: grid;
-  gap: 1rem;
+  gap: 3rem;
 }
 
 .special__card {
+  box-shadow: 10px 10px 40px rgba(0, 0, 0, 0.46);
   padding: 1rem;
   text-align: center;
   border-radius: 2rem;
@@ -200,18 +225,18 @@ nav {
 }
 
 .special__card:hover {
-  box-shadow: 10px 10px 40px rgba(0, 0, 0, 0.1);
+  box-shadow: 10px 10px 40px rgb(255, 145, 0);
 }
 
 .special__card img {
   max-width: 200px;
   margin-inline: auto;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   filter: drop-shadow(10px 10px 20px rgba(0, 0, 0, 0.3));
 }
 
 .special__card h4 {
-  margin-bottom: 0.5rem;
+  margin: 1rem 0;
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--text-dark);
@@ -227,13 +252,6 @@ nav {
   margin-bottom: 1rem;
   font-size: 1rem;
   color: goldenrod;
-}
-
-.special__footer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
 }
 
 .special__footer .price {
@@ -472,6 +490,7 @@ nav {
 .footer {
   background-color: #18181b;
   margin-top: 5rem;
+  padding: 2rem 1rem;
 }
 
 .footer__container {
@@ -516,6 +535,7 @@ nav {
   font-size: 0.9rem;
   color: var(--text-light);
   text-align: center;
+  background-color: #000000;
 }
 
 @media (width > 540px) {
@@ -690,39 +710,22 @@ nav {
   padding: 2rem;
 }
 
-.saved-recipe-notes-title {
-  font-size: 2rem;
-  margin: auto;
-}
-
 .your-recipe-notes-list ul li{
   margin: 1rem 0;
-}
-
-#create-recipe-button {
-  margin: auto;
-  margin-bottom: 1rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--primary-color);
-  color: var(--white);
-  padding: 10px 20px;
-  border-radius: 10px;
-  transition: 0.3s;
-  width: 20%;
-  text-align: center;
-  font-weight: 900;
-}
-
-#create-recipe-button a {
-  color: var(--white);
 }
 
 /* Find Recipe */
 
 .find-container {
-  padding: 5rem 1rem;
+  padding: 0 1rem;
+}
+
+.find-container h1 {
+  margin-bottom: 5rem;
+}
+
+.find-container span {
+  color: var(--primary-color);
 }
 
 .load {
@@ -751,6 +754,18 @@ nav {
 
 /* Contact */
 
+.section_contact {
+  margin-top: 2rem;
+}
+
+.contact__content h2 {
+  margin-bottom: 2rem;
+}
+
+.contact__content span {
+  color: var(--primary-color);
+}
+
 .contact__container {
   width: 50%;
   margin: auto;
@@ -766,6 +781,7 @@ nav {
   font-size: 1.2rem;
   font-weight: 600;
   color: var(--text-dark);
+  margin-bottom: 0.5rem;
 }
 
 .contact__form input,
@@ -787,19 +803,6 @@ nav {
   border-color: var(--primary-color);
 }
 
-.contact__form button {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 10px;
-  background-color: var(--primary-color);
-  color: var(--white);
-  transition: 0.3s;
-}
-
-.contact__form button:hover {
-  opacity: 0.8;
-}
-
 /* Index */
 
 .explore {
@@ -809,7 +812,7 @@ nav {
 /* subscription */
 
 .subscription-container {
-  padding-top: 2rem;
+  padding-top: 1rem;
 }
 
 /* Footer responsive */
@@ -823,17 +826,3 @@ nav {
   display: grid;
   gap: 1rem;
 }
-
-.footer__links {
-  display: grid;
-  gap: 0.5rem;
-}
-
-.footer__links a {
-  color: var(--text-light);
-}
-
-.footer__links a:hover {
-  color: var(--primary-color);
-}
-

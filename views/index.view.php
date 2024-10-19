@@ -29,7 +29,7 @@
           Simple to search for recipes by TlashRecipe, easy to make and perfect for any occasion. Explore our collection of recipes and get inspired. And make your own recipe.
         </p>
         <div class="explore__btn">
-          <button class="btn">
+          <button class="btn explore-button">
             <a class="explore" href="/find">Explore Story <span><i class="ri-arrow-right-line"></i></span></a>
           </button>
         </div>
@@ -38,41 +38,5 @@
 
     <!--- Contact Section --->
     <?php require('partials/contact.php') ?>
-
-    <footer class="footer">
-      <div class="section__container footer__container">
-        <div class="footer__col">
-          <div class="logo footer__logo">
-            <a href="/">Tlash<span>Recipe</span></a>
-          </div>
-          <p class="section__description">
-            TlashRecipe is a platform where you can find the best and most delicious recipes, easy to make and perfect for any occasion. 
-          </p>
-        </div>
-        <div class="footer__col">
-          <h4>Product</h4>
-          <ul class="footer__links">
-            <li><a href="/recipe/create">Create Recipes</a></li>
-            <li><a href="/saved">Saved Recipes</a></li>
-            <li><a href="/favourites">Favourites</a></li>
-            <li><a href="/find">Find Recipes</a></li>
-          </ul>
-        </div>
-        <div class="footer__col">
-          <h4>Information</h4>
-          <ul class="footer__links">
-            <li><a href="#">About Us</a></li>
-            <li><a href="#contact">Contact Us</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer__bar">
-        Copyright © 2024 Tlash Recipe. All rights reserved.
-      </div>
-    </footer>
-
-    <script src="https://unpkg.com/scrollreveal"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="main.js"></script>
-
+    
 <?php require('partials/footer.php') ?>
